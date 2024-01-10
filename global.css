@@ -186,7 +186,7 @@ body {
   text-align: center;
 }
 .input__lg {
-  padding: 2rem;
+  padding: 1rem;
   border: 2px solid #000;
 }
 .input__lg:focus {
@@ -238,10 +238,10 @@ body {
   font-size: 1.6rem;
   line-height: 1.25;
   display: grid;
-  grid-template-columns: 10fr 2fr 2fr;
+  grid-template-columns: 10fr 60px 60px;
   gap: 10px;
   position: relative;
-  min-height: 44px;
+  min-height: 40px;
   padding-left: 40px;
   clear: left;
 }
@@ -250,8 +250,8 @@ body {
   box-sizing: border-box;
   top: -2px;
   left: -2px;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 }
 .c-cb > input[type="checkbox"] {
   -webkit-font-smoothing: antialiased;
