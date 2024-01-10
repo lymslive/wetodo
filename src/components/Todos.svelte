@@ -83,8 +83,6 @@
   {/each}
   </ul>
 
-  <hr />
-
   <!-- MoreActions -->
   <MoreActions {todos}
     on:checkAll={e => checkAllTodos(e.detail)}
