@@ -12,6 +12,11 @@
 
   let name = todo.name                    // hold the name of the todo being edited
 
+  // disable remove button for short seconds after save
+  let disableRemove = false;
+  let timeoutRemove = null;
+  const disableTime = 5 * 1000;
+
   function update(updatedTodo) {
     todo = { ...todo, ...updatedTodo }    // applies modifications to todo
     dispatch('update', todo)              // emit update event
@@ -25,6 +30,12 @@
   function onSave() {
     update({ name: name })                // updates todo name
     editing = false                       // and exit editing mode
+
+    disableRemove = true;
+    timeoutRemove = setTimeout(() => {
+      disableRemove = false;
+      clearTimeout(timeoutRemove);
+    }, disableTime);
   }
 
   function onRemove() {
@@ -71,7 +82,7 @@
     <button type="button" class="btn" on:click={onEdit} use:focusEditButton>
       修改<span class="visually-hidden"> {todo.name}</span>
     </button>
-    <button type="button" class="btn btn__danger" on:click={onRemove}>
+    <button type="button" class="btn btn__danger" on:click={onRemove} disabled={disableRemove}>
       删除<span class="visually-hidden"> {todo.name}</span>
     </button>
   </div>
